@@ -26,7 +26,7 @@ fun day2PartTwo() {
 
     data class Position(var aim: Int = 0, var horizontal: Int = 0, var depth: Int = 0)
 
-    val course = File(input).readLines()
+    val (_, horizontal, depth) = File(input).readLines()
         .map { it.split(" ") }
         .map { it[0] to it[1].toInt() }
         .fold(Position()) { position, (command, unit) ->
@@ -41,9 +41,5 @@ fun day2PartTwo() {
             position
         }
 
-
-    println(course.let { position ->
-        position.horizontal * position.depth
-    })
-
+    println(horizontal * depth)
 }
